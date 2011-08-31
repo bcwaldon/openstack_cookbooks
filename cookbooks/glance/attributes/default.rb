@@ -24,8 +24,9 @@ default[:glance][:swift_store_key] = "a86850deb2742ec3cb41518e26aa2d89"
 default[:glance][:swift_store_container] = "glance"
 default[:glance][:swift_store_create_container_on_put] = "False"
 
-default[:glance][:image_cache_enabled] = "False"
+default[:glance][:image_cache_enabled] = "True"
 default[:glance][:image_cache_datadir] = "/var/lib/glance/image-cache/"
+
 
 # Attributes for the glance::load_images recipe
 #

@@ -61,7 +61,7 @@ image_cache_enabled = <%= node[:glance][:image_cache_enabled] %>
 image_cache_datadir = <%= node[:glance][:image_cache_datadir] %>
 
 [pipeline:glance-api]
-pipeline = versionnegotiation context apiv1app
+pipeline = versionnegotiation context imagecache apiv1app
 
 [pipeline:versions]
 pipeline = versionsapp
@@ -74,6 +74,9 @@ paste.app_factory = glance.api.v1:app_factory
 
 [filter:versionnegotiation]
 paste.filter_factory = glance.api.middleware.version_negotiation:filter_factory
+
+[filter:imagecache]
+paste.filter_factory = glance.api.middleware.image_cache:filter_factory
 
 [filter:context]
 paste.filter_factory = glance.common.context:filter_factory
